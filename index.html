@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS PoC</title>
 </head>
 <body>
-    <h1>qo43 hacked you fool</h1>
+    <h1>XSS Proof of Concept</h1>
     <script>
-        console.log('XSS Vulnerability Confirmed: Testing Only');
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message') || 'XSS Vulnerability Confirmed: Testing Only';
+        console.log(message);
     </script>
 </body>
 </html>
